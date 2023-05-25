@@ -1,0 +1,137 @@
+
+:root{
+    --sliver-color :  linear-gradient(62deg, rgb(80 75 75) 0%, rgb(255 255 255) 35%, rgb(203 203 200) 72%, rgb(255 255 255) 100%);
+    --bronze-color: linear-gradient(90deg, rgb(255 184 85) 0%, rgb(251 228 196) 50%, rgb(255 195 110) 100%);
+    --gold-color:  radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffac 8%, #ffe6b2 30%, #fedb37 40%, transparent 80%),
+                    radial-gradient(ellipse farthest-corner at left top, #FEDB37 0%, #ffffba 8%, #ffe6b2 30%, #ffe777 40%, #ffffac 80%);
+    --header-background:linear-gradient(90deg, rgba(37,43,84,1) 0%, rgba(58,66,119,1) 50%, rgba(37,43,84,1) 100%);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    direction: rtl;
+}
+.container {
+    width: 80%;
+    padding: 15px;
+    margin-inline: auto;
+}
+@media (max-width:405px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }   
+}
+/* 
+------------- #START CODE
+*/
+.our-plans {
+    padding-block-start: 50px;
+}
+.header{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-block-end: 30px;
+}
+.plans-content{
+    display: flex;
+    justify-content:center;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.plan{
+    padding: 5px 20px 20px 20px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 1px 1px 15px hsl(0deg 0% 80%);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}.plan::after{
+   content: "";
+   position: absolute;
+   height: 50%;
+   width: 100%;
+   z-index: -1;
+   transform: rotate(-45deg);
+   border-radius: 50px;
+   border: 26px solid transparent;
+}
+
+.plan.silver::after{
+    background: var(--header-background) padding-box,
+                var(--sliver-color) border-box;  
+    left: -28px;
+    top: -204px;  
+}.plan.gold::after{
+    left: -43px;
+    top: -250px;
+    background: var(--header-background) padding-box,
+                var(--gold-color) border-box; 
+
+}.plan.bronze::after{
+    left: -15px;
+    top: -175px;
+    background: var(--header-background) padding-box,
+                var(--bronze-color) border-box;   
+}
+.plan-head{
+    text-align: center;
+    margin-block-end: 10px;
+    color: white;
+}
+.plan-head h2{
+    font-size: 35px;
+}
+.plan-head p{
+    font-size: 20px;
+}
+/*LIST ITEM => ICON + SPAN */
+.plan-list{
+    margin-block-start: 141px;
+}
+.list-item{
+    padding-block: 5px;
+}
+.plan.silver .list-item i{
+    color:  rgb(219,219,219);
+}.plan.gold .list-item i{
+    color: #e3bf1f;
+}.plan.bronze .list-item i{
+    color:#CD7F32;
+}
+.list-item span{
+    margin-inline-start: 8px;
+    font-size: 18px;
+}
+/* BUTTON */
+.plan .buy{
+    width: 60%;
+    height: 35px;
+    display: block;
+    margin: 10px auto 0 auto;
+    border: none;
+    font-size: 19px;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+.plan.gold .buy{
+    background-image: var(--gold-color);
+}.plan.bronze .buy{
+    background-image:var(--bronze-color);
+}.plan.silver .buy{
+    background-image:var(--sliver-color) ;
+    color: #bfbfbf;
+}
